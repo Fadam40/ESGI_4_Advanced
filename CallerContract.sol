@@ -25,4 +25,9 @@ contract CallerContract {
         // Décoder les données retournées
         value = abi.decode(data, (uint256));
     }
+
+    function delegateBoom(address target) external {
+        (bool success, ) = address(target).delegatecall(abi.encodeWithSignature("destruct()"));
+        require(success);
+    }
 }
