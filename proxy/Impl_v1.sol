@@ -5,7 +5,8 @@ contract ImplementationV1 {
     uint256 public value; // Première variable de stockage
     address public admin; // Deuxième variable de stockage
 
-    function setValue(uint256 _value) public {
+    function initialize(uint256 _value) public {
         value = _value;
+        admin=msg.sender;
     }
 }
